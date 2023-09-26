@@ -16,7 +16,7 @@ print(vysledek)
 print((a+b>c) and (a+c>b) and (b+c>a))
 
 
-### with fce if ###
+### with fce if (dobrovolné) ###
 
 a= 8
 b= 3
@@ -30,9 +30,9 @@ else:
 
 #2
 if a >= b and a <= c:
-    print("Číslo a náleží do intervalu (a,b)")
+    print("Číslo a náleží do intervalu (b,c)")
 else:
-    print("Není pravda, že číslo a náleží do intervalu (a,b)")
+    print("Není pravda, že číslo a náleží do intervalu (b,c)")
 
 #3
 if a!=0 and b!= 0 and c!= 0 and a+b>c and a+c>b and b+c>a:
