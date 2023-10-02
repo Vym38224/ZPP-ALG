@@ -1,6 +1,5 @@
 number= input("Zadej číslo dne:")
 number = int(number)
-month=()
 
 if number >= 1 and number <= 365:
     if number in range(1,365,7): 
@@ -19,31 +18,6 @@ if number >= 1 and number <= 365:
         day = 7
     if number == 365: 
         day = 1
-
-    if number >= 1 and number <= 31:
-        month = 1
-    if number >= 32 and number <= 59:
-        month = 2
-    if number >= 60 and number <= 80:
-        month = 3
-    if number >= 81 and number <= 110:
-        month = 4
-    if number >= 111 and number <= 141:
-        month = 5
-    if number >= 142 and number <= 171:
-        month = 6
-    if number >= 172 and number <= 202:
-        month = 7
-    if number >= 203 and number <= 233:
-        month = 8
-    if number >= 234 and number <= 263:
-        month = 9
-    if number >= 264 and number <= 294:
-        month = 10
-    if number >= 295 and number <= 324:
-        month = 11
-    if number >= 325 and number <= 365:
-        month = 12
 else:
     day = 0
 
@@ -57,20 +31,31 @@ match day:
     case 7: print("Den v týdnu:sobota")
     case _: print("Chyba:Zadáno špatné číslo, vybírejte z intervalu <1,365>")
 
-match month:
-    case 1: print("Měsíc:leden")
-    case 2: print("Měsíc:únor")
-    case 3: print("Měsíc:březen")
-    case 4: print("Měsíc:duben")
-    case 5: print("Měsíc:květen")
-    case 6: print("Měsíc:červen")
-    case 7: print("Měsíc:červenec")
-    case 8: print("Měsíc:srpen")
-    case 9: print("Měsíc:září")
-    case 10: print("Měsíc:říjen")
-    case 11: print("Měsíc:listopad")
-    case 12: print("Měsíc:prosinec")
-    
+if number >= 1 and number <= 365:
+    if number >= 1 and number <= 31:
+        print("Měsíc:leden")
+    if number >= 32 and number <= 59:
+        print("Měsíc:únor")
+    if number >= 60 and number <= 80:
+        print("Měsíc:březen")
+    if number >= 81 and number <= 110:
+        print("Měsíc:duben")
+    if number >= 111 and number <= 141:
+        print("Měsíc:květen")
+    if number >= 142 and number <= 171:
+        print("Měsíc:červen")
+    if number >= 172 and number <= 202:
+        print("Měsíc:červenec")
+    if number >= 203 and number <= 233:
+        print("Měsíc:srpen")
+    if number >= 234 and number <= 263:
+        print("Měsíc:září")
+    if number >= 264 and number <= 294:
+        print("Měsíc:říjen")
+    if number >= 295 and number <= 324:
+        print("Měsíc:listopad")
+    if number >= 325 and number <= 365:
+        print("Měsíc:prosinec")
     
     
 
