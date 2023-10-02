@@ -29,7 +29,7 @@ else:
     print("Neplatí Pythagorova věta")
 
 #2
-if a >= b and a <= c:
+if a > b and a < c:
     print("Číslo a náleží do intervalu (b,c)")
 else:
     print("Není pravda, že číslo a náleží do intervalu (b,c)")
