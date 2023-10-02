@@ -48,28 +48,28 @@ else:
     day = 0
 
 match day:
-    case 1: print("Den v týdnu:Neděle")
-    case 2: print("Den v týdnu:Pondělí")
-    case 3: print("Den v týdnu:Úterý")
-    case 4: print("Den v týdnu:Středa")
-    case 5: print("Den v týdnu:Čtvrtek")
-    case 6: print("Den v týdnu:Pátek")
-    case 7: print("Den v týdnu:Sobota")
+    case 1: print("Den v týdnu:neděle")
+    case 2: print("Den v týdnu:pondělí")
+    case 3: print("Den v týdnu:úterý")
+    case 4: print("Den v týdnu:středa")
+    case 5: print("Den v týdnu:čtvrtek")
+    case 6: print("Den v týdnu:pátek")
+    case 7: print("Den v týdnu:sobota")
     case _: print("Chyba:Zadáno špatné číslo, vybírejte z intervalu <1,365>")
 
 match month:
-    case 1: print("Měsíc:Leden")
-    case 2: print("Měsíc:Únor")
-    case 3: print("Měsíc:Březen")
-    case 4: print("Měsíc:Duben")
-    case 5: print("Měsíc:Květen")
-    case 6: print("Měsíc:Červen")
-    case 7: print("Měsíc:Červenec")
-    case 8: print("Měsíc:Srpen")
-    case 9: print("Měsíc:Září")
-    case 10: print("Měsíc:Říjen")
-    case 11: print("Měsíc:Listopad")
-    case 12: print("Měsíc:Prosinec")
+    case 1: print("Měsíc:leden")
+    case 2: print("Měsíc:únor")
+    case 3: print("Měsíc:březen")
+    case 4: print("Měsíc:duben")
+    case 5: print("Měsíc:květen")
+    case 6: print("Měsíc:červen")
+    case 7: print("Měsíc:červenec")
+    case 8: print("Měsíc:srpen")
+    case 9: print("Měsíc:září")
+    case 10: print("Měsíc:říjen")
+    case 11: print("Měsíc:listopad")
+    case 12: print("Měsíc:prosinec")
     
     
     
