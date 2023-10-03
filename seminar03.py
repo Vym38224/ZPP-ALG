@@ -2,19 +2,20 @@ number = input("Zadej číslo dne: ")
 number = int(number)
 
 if number >= 1 and number <= 365:
-    if number in range(1,365,7): 
+    reminder = (number-1)%7
+    if reminder == 0: 
         day = 1
-    if number in range(2,365,7): 
+    if reminder == 1: 
         day = 2
-    if number in range(3,365,7): 
+    if reminder == 2: 
         day = 3
-    if number in range(4,365,7): 
+    if reminder == 3: 
         day = 4
-    if number in range(5,365,7): 
+    if reminder == 4: 
         day = 5
-    if number in range(6,365,7): 
+    if reminder == 5: 
         day = 6
-    if number in range(7,365,7): 
+    if reminder == 6: 
         day = 7
     if number == 365: 
         day = 1
