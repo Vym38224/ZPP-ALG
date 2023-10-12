@@ -28,21 +28,25 @@ def leq(x, y):
         y = y - 1
     return x == 0
 
-
-"""tam kde to jde použít for"""
-
 #eq (rovnost) (2, 2) => true
-"""def eq(x, y):
-    while x > 0 and y > 0:
-        x = x - 1
-        y = y - 1
-"""
+def eq(x, y):
+    if x == y:
+        return True
+        
 #div(7, 2) => 3
+def div(x,y):
+    z=x//y
+    return z
 
 #mod(7, 2) => 1
+def mod(x,y):
+    z=x%y
+    return z
 
 #power(2, 3) => 8
-
+def power(x,y):
+    z=x**y
+    return z
 
 #fce sum_up_to(5) = 0 + 1 + 2 + 3 + 4 = 10
 def sum_up_to(x):
@@ -61,5 +65,12 @@ def sum_squares_up_to(x):
     return z
 
 #fce faktoriál (kde 0! = 1; n! = n * (n - 1)!); př. factorial(3) => 6
-#def factorial(x):
+def factorial(x):
+    if x == 0:
+        return 1
+    else:
+        return x * factorial(x - 1)   
+
+#z=factorial(SEM NAPIŠ ČEMU SE ROVNÁ X)
+#print(z)
     

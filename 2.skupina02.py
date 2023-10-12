@@ -39,8 +39,11 @@ def reverse_digits(x):
                        get_butbutlast_digit(x))
 
 #úkol: převod nezáporného čísla menšího než 32 do dvojkové soustavy a zpět (5 => 101)
-
-#logické hodnoty (True, False); podmínky
+def number_to_binary(x):
+    if x > 0 and x <= 32:
+        return(bin(x)[2:])
+    else:
+        print("Neplatné číslo")
 
 #predikát = fce vždy vracející logickou hodnotu
 def is_even1(x):
@@ -58,7 +61,11 @@ def is_even2(x):
         return False
 
 #rozhodnout, zda tři čísla tvoří pythagorejskou trojici. (ex. 3, 4, 5 => True)
-    
+def pythagoras(a=3,b=4,c=5):
+    if a!=0 and b!= 0 and c!= 0 and a+b>c and a+c>b and b+c>a:
+        return True
+    else:
+        return False
 
 #napište funkci, která vrátí absolutní hodnotu čísla
 def absolute_value(x):
@@ -81,7 +88,6 @@ def is_triangle(x, y, z):
     else:
         return False
 
-
 #rozhodněte, zda je trojúhelník rovnoramenný
     #hm something wrong here
 def is_triangle_isosceles(x, y, z):
@@ -89,3 +95,4 @@ def is_triangle_isosceles(x, y, z):
         return True
     else:
         return False
+    
