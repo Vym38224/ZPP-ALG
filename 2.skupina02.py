@@ -62,7 +62,7 @@ def is_even2(x):
 
 #rozhodnout, zda tři čísla tvoří pythagorejskou trojici. (ex. 3, 4, 5 => True)
 def pythagoras(a=3,b=4,c=5):
-    if a!=0 and b!= 0 and c!= 0 and a+b>c and a+c>b and b+c>a:
+    if a**2 + b**2 == c**2:
         return True
     else:
         return False
@@ -89,10 +89,11 @@ def is_triangle(x, y, z):
         return False
 
 #rozhodněte, zda je trojúhelník rovnoramenný
-    #hm something wrong here
 def is_triangle_isosceles(x, y, z):
     if (((x == y) and (x != z)) or (x != y and x == z) or (y == z and x != y) or (x == y and x == z)) and (is_triangle(x, y, z) == True):
         return True
     else:
         return False
-    
+  
+#z=is_triangle_isosceles()
+#print(z)

@@ -71,6 +71,6 @@ def factorial(x):
     else:
         return x * factorial(x - 1)   
 
-#z=factorial(SEM NAPIŠ ČEMU SE ROVNÁ X)
+#z=factorial()
 #print(z)
     
