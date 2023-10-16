@@ -1,4 +1,4 @@
-for i in range(2, 100):
+for i in range(1, 101):
     prvocislo_x = False
     prvocislo_x2 = False
 
