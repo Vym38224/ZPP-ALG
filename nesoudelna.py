@@ -3,6 +3,7 @@ c2 = int(input("zadejte druhé číslo: "))
 delitel = 2
 nesoudelna = min(c1,c2)
 
-while nesoudelna 
+while nesoudelna:
+    pass
 
 ##dodelat
