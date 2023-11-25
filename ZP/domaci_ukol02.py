@@ -40,7 +40,6 @@ vloz(seznam_osob, o1)
 vloz(seznam_osob, o2)
 vloz(seznam_osob, o3)
 
-
 print("\nSeznam osob:")
 tisk(seznam_osob)
 
