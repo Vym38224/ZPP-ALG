@@ -1,5 +1,5 @@
 Instertion_Sort(A[0,...,n-1])
-for i = 1 in n-1 do
+for i = 1 to n-1 do
     t = A[i]
     j = i - 1
     while j >= 0 and A[j] > t do
