@@ -1,0 +1,10 @@
+Selection_Sort(A[0,...,n-1])
+for j = 1 in n-2 do
+    iMin = j
+    for i in n-1 do
+        if A[i] < A[iMin]
+            iMin = i
+        swap(A[i],A[iMin])
+
+A = [3,7,1,6,8,4]
+#select = vybrat
