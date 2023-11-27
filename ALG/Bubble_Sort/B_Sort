@@ -1,0 +1,9 @@
+Boubble_Sort(A[0,...,n-1])
+for j = 0 to n-2 do
+    for i = n-1 downto j + 1 do
+        if A[i] < A[i-1]:
+            swap(A[i],A[i-1])
+    
+
+A = [3,7,1,6,8,4]
+#boubble = bublina
