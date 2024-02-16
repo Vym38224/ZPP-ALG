@@ -8,7 +8,7 @@ def decimal_to_binary(decimal):
     return binary
 
 # Test
-decimal_number = 5
+decimal_number = 9
 
 binary_number = decimal_to_binary(decimal_number)
 print("Binární číslo:", binary_number)
