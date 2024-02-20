@@ -3,9 +3,14 @@ def create_array(n):
     s = {"keys": k,"top":0}
     return s
 
+def insert(array, key, data):
+    if array["top"] < len(array["keys"]):
+        array["keys"][array["top"]] = {"key": key, "data": data}
+        array["top"] += 1
+
 f = create_array(10)
-f['keys'][0]['key'] = 371
-f['keys'][0]['data'] = "Bitva u Leuktry, thébská hegemonie"
+insert(f,371,"Bitva u Leuktry, thébská hegemonie")
+insert(f,100,"Nějaká událost v roce 100")
 
 def binary_search(array, key):
     # Filtrujeme prvky s None klíči
@@ -29,7 +34,7 @@ def binary_search(array, key):
 
 
 # Použití binárního vyhledávání na poli
-array_set = f['keys']
+array_set = f["keys"]
 print("Rok 371:" + binary_search(array_set, 371))
 print("Rok 100:" + binary_search(array_set,100))
 
