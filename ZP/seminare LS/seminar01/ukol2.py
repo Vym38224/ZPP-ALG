@@ -11,7 +11,7 @@ def caesar_sifra(sifrovany_text, posun):
 # Zadaná šifrovaná zpráva
 sifrovany_text = "mrwfvqbfcryivfiqborxqlfrmnqanmirpvpbfvcerwrfarqnxbhcvgibopubqr"
 
-# Prozkoušení všech možných klíčů (posunů)
+# Test, prozkoušení všech možných klíčů (posunů)
 for posun in range(1, 26):
     text = caesar_sifra(sifrovany_text, posun)
     print(f"Klíč {posun}: {text}")
