@@ -1,5 +1,5 @@
 def caesar_sifra(sifrovany_text, posun):
-    abeceda = 'abcdefghijklmnopqrstuvwxyz'
+    abeceda = "abcdefghijklmnopqrstuvwxyz"
     text = ""
     for char in sifrovany_text:
         if char.isalpha():      
