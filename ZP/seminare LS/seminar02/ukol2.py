@@ -1,12 +1,12 @@
-def soucet_z(cislo, vysledek = 0):
-    if cislo == 0:
+def soucet_z(a, b, vysledek=0):
+    if a == 0 and b == 0:
         return vysledek
-    if cislo > 0:
-        vysledek = -cislo + cislo
-        return soucet_z(cislo - 1, vysledek + vysledek)
-    if cislo < 0:
-        vysledek = -cislo + cislo
-        return soucet_z(cislo + 1, vysledek + vysledek)
+    elif a == 0 and b > 0:
+        return soucet_z(a,b-b,vysledek+a+b)
+    elif a > 0 and b == 0:
+        return soucet_z(a-a,b,vysledek+a+b)
+    elif a>b or b>a:
+        return soucet_z(a-a,b-b,vysledek+a+b)
         
 # Test
-print(soucet_z(55))
+print(soucet_z(1,3))
