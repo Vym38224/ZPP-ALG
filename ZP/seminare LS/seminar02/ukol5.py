@@ -5,5 +5,5 @@ def delka(seznam):
         return 1 + delka(seznam[1:])  
 
 # Test
-test_seznam = []
+test_seznam = [1,4]
 print(delka(test_seznam))  

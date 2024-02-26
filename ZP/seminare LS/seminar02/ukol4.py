@@ -1,7 +1,7 @@
-def factorial(n, vysledek=1):
+def factorial(n, vysledek):
     if n == 0:
         return vysledek
     else:
         return factorial(n - 1, n * vysledek)
 
-print(factorial(5))
+print(factorial(5,1))

@@ -1,12 +1,11 @@
-def soucet_z(a, b, vysledek=0):
-    if a == 0 and b == 0:
-        return vysledek
-    elif a == 0 and b > 0:
-        return soucet_z(a,b-b,vysledek+a+b)
-    elif a > 0 and b == 0:
-        return soucet_z(a-a,b,vysledek+a+b)
-    elif a>b or b>a:
-        return soucet_z(a-a,b-b,vysledek+a+b)
-        
-# Test
-print(soucet_z(1,3))
+def soucet_intervalu_rekurze(start, end):
+    if start > end:
+        return 0
+    else:
+        return start + soucet_intervalu_rekurze(start + 1, end)
+
+# Příklad použití funkce:
+start = 1
+end = 4
+vysledek = soucet_intervalu_rekurze(start, end)
+print(f"Součet čísel od {start} do {end} je: {vysledek}")

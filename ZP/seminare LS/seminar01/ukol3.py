@@ -10,7 +10,7 @@ def reverse_diagonal_matrix(n):
         matrix.append(radek)
     return matrix
     
-n = 8
+n = 7
 result_matrix = reverse_diagonal_matrix(n)
 for radek in result_matrix:
     print(radek)

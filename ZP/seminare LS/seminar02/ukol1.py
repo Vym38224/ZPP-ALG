@@ -8,7 +8,7 @@ def mocnina(zaklad, exponent):
 
 
 # počítá výsledek v každém kroku až do dosažení exponentu 0
-def mocnina_koncove(zaklad, exponent, vysledek=1):
+def mocnina_koncove(zaklad, exponent, vysledek):
     if exponent == 0:
         return vysledek
     elif exponent < 0:
@@ -18,5 +18,5 @@ def mocnina_koncove(zaklad, exponent, vysledek=1):
 
 # Test
 print(mocnina(3,3))  
-print(mocnina_koncove(3,3))
+print(mocnina_koncove(3,3,1))
 

@@ -9,6 +9,6 @@ def pascal(row, col):
 
 # Test
 row_index = 6
-col_index = 0
+col_index = 2
 print(pascal(row_index, col_index))
 
