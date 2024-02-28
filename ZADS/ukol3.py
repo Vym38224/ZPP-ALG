@@ -18,7 +18,7 @@ def full(Q):
 # Inicializace fronty
 Q = {"stack1": [],"stack2": [],"top": 10}
 
-# Příkazy
+# Test
 for i in range(10):
     enqueue(Q, i)
 for i in range(10):
