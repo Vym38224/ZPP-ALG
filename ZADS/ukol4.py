@@ -1,5 +1,3 @@
-import lin_dat_str as lds
-
 root = {"id":1, 
     "child":[{"id":2, 
         "child":[{"id":5, 
@@ -25,16 +23,15 @@ root = {"id":1,
     "siblin":[]}
         
 
-      
-"""def depth_first_search_iter(node):
+def depth_first_search(node):
     x=node
-    S=lds.init_stack(20)
-    lds.push(S,x)
-    while lds.empty_s(S)!=True:
-        y=lds.pop(S)
-        print(y["id"],end=" ")
-        for i in range(y["n"]):
-            lds.push(S,y["children"][i])
+    print(x["id"])      
+    if "child" in x:  
+        for child in x["child"]:
+            depth_first_search(child)  
+    if "siblin" in x:  
+        for sibling in x["siblin"]:
+            depth_first_search(sibling)  
 
-print("")
-depth_first_search_iter(root)"""
+depth_first_search(root)
+
