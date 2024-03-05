@@ -22,16 +22,15 @@ root = {"id":1,
                 "siblin":[]}]}]}],
     "siblin":[]}
         
-
 def depth_first_search(node):
     x=node
-    print(x["id"])      
+    print(x["id"], end=" ")      
     if "child" in x:  
         for child in x["child"]:
             depth_first_search(child)  
     if "siblin" in x:  
         for sibling in x["siblin"]:
             depth_first_search(sibling)  
-
+ 
 depth_first_search(root)
 
