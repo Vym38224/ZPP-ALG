@@ -9,10 +9,8 @@ def pridej_do_seznamu(seznam, x):
 def odeber_ze_seznamu(seznam, x):
     if not seznam:
         return  
-
     predchozi = None
     aktualni = seznam
-
     while aktualni[PRVNI_PRVEK] != x:
         predchozi = aktualni
         aktualni = aktualni[DALSI_PRVEK]
@@ -35,6 +33,6 @@ pridej_do_seznamu(muj_seznam, 4)
 print(f"Seznam před odebráním: {muj_seznam}")
 
 # Odstranění prvku
-odeber_prvek = 1
+odeber_prvek = 2
 odeber_ze_seznamu(muj_seznam, odeber_prvek)
 print(f"Seznam po odebrání: {muj_seznam}")
