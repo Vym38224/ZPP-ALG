@@ -1,27 +1,47 @@
-def create_queue():
-    return []
-
-def is_empty(queue):
-    return queue == []
-
-def enqueue(queue, item):
-    queue.append(item)
+def enqueue(queue, value):
+    new_node = {"key": value, "next": None}
+    if "tail" not in queue:
+        queue["head"] = new_node
+        queue["tail"] = new_node
+    else:
+        queue["tail"]["next"] = new_node
+        queue["tail"] = new_node
 
 def dequeue(queue):
-    if not is_empty(queue):
-        return queue.pop(0)
-    else:
+    if "head" not in queue:
         return None
+    else:
+        dequeued_value = queue["head"]["key"]
+        queue["head"] = queue["head"]["next"]
+        if queue["head"] is None:
+            queue["tail"] = None
+        return dequeued_value
 
-def size(queue):
-    return len(queue)
+def display(queue): # Vypsání obsahu fronty
+    current = queue["head"]
+    while current:
+        print(current["key"], end=" ")
+        current = current["next"]
+    print()
 
-# Použití fronty
-queue = create_queue()
-enqueue(queue, 1)
-enqueue(queue, 2)
-enqueue(queue, 3)
-print("Fronta:", queue)
-print("Velikost fronty:", size(queue))
-print("Odstranění prvního prvku fronty:", dequeue(queue))
-print("Fronta po odebrání:", queue)
+
+# Vytvoření prázdné fronty
+my_queue = {}
+
+# Přidání prvků do fronty
+enqueue(my_queue, 10)
+enqueue(my_queue, 5)
+enqueue(my_queue, 12)
+
+# Vypsání obsahu fronty
+print("Obsah fronty:")
+display(my_queue)
+
+# Odebrání prvků z fronty
+print("Odebrané prvky:")
+print(dequeue(my_queue))
+print(dequeue(my_queue))
+
+# Vypsání obsahu fronty po odebrání prvků
+print("Obsah fronty po odebrání:")
+display(my_queue)

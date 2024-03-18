@@ -1,34 +1,44 @@
-def create_stack():
-    return []
-
-def is_empty(stack):
-    return stack == []
-
-def push(stack, item):
-    stack.append(item)
+def push(stack, value):
+    new_node = {"key": value, "next": None}
+    if "head" not in stack:
+        stack["head"] = new_node
+    else:
+        new_node["next"] = stack["head"]
+        stack["head"] = new_node
 
 def pop(stack):
-    if not is_empty(stack):
-        return stack.pop()
-    else:
+    if "head" not in stack:
         return None
-
-def peek(stack):
-    if not is_empty(stack):
-        return stack[-1]
     else:
-        return None
+        popped_value = stack["head"]["key"]
+        stack["head"] = stack["head"]["next"]
+        return popped_value
 
-def size(stack):
-    return len(stack)
+def display(stack):
+    current = stack["head"]
+    while current:
+        print(current["key"], end=" ")
+        current = current["next"]
+    print()
 
-# Použití zásobníku
-stack = create_stack()
-push(stack, 1)
-push(stack, 2)
-push(stack, 3)
-print("Zásobník:", stack)
-print("Vrchol zásobníku:", peek(stack))
-print("Velikost zásobníku:", size(stack))
-print("Odstranění vrcholu zásobníku:", pop(stack))
-print("Zásobník po odebrání:", stack)
+
+# Vytvoření prázdného zásobníku
+my_stack = {}
+
+# Přidání prvků do zásobníku
+push(my_stack, 10)
+push(my_stack, 8)
+push(my_stack, 15)
+
+# Vypsání obsahu zásobníku
+print("Obsah zásobníku:")
+display(my_stack)
+
+# Odebrání prvků ze zásobníku
+print("Odebrané prvky:")
+print(pop(my_stack))
+print(pop(my_stack))
+
+# Vypsání obsahu zásobníku po odebrání prvků
+print("Obsah zásobníku po odebrání:")
+display(my_stack)
