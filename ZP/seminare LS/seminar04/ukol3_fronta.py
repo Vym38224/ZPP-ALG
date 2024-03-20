@@ -17,13 +17,19 @@ def dequeue(queue):
             queue["tail"] = None
         return dequeued_value
 
-def display(queue): # Vypsání obsahu fronty
+def display(queue):
+    output = "["
     current = queue["head"]
     while current:
-        print(current["key"], end=" ")
+        output += str(current["key"])
+        if current["next"]:
+            output += ", "
+            output += "["
+        else:
+            output += ", [None]"  
         current = current["next"]
-    print()
-
+    output += "]" * (output.count("[") - output.count("]")) + "]" 
+    print(output)
 
 # Vytvoření prázdné fronty
 my_queue = {}
@@ -32,6 +38,8 @@ my_queue = {}
 enqueue(my_queue, 10)
 enqueue(my_queue, 5)
 enqueue(my_queue, 12)
+enqueue(my_queue, 8)
+enqueue(my_queue, 15)
 
 # Vypsání obsahu fronty
 print("Obsah fronty:")

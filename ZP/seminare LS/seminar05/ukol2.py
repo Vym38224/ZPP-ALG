@@ -24,5 +24,4 @@ root = []
 tree_add(root, 16)
 tree_add(root, 15)
 tree_add(root, 42)
-
 print(root)

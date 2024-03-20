@@ -31,18 +31,14 @@ def add_edge(graph, from_label, to_label, value):
                 v = node
             elif node[LABEL] == to_label:
                 w = node      
-    if v and w:
-        v[EDGES].append((w, value))  
-        w[EDGES].append((v, value))
+    v[EDGES].append((w, value))  
+    w[EDGES].append((v, value))
 
 def add_node(graph, label):
         graph.append([label, []])
 
 # Test
 root = []
-tree_add(root, 16)
-tree_add(root, 15)
-tree_add(root, 42)
 add_node(root, 16)
 add_node(root, 15)
 add_node(root, 42)

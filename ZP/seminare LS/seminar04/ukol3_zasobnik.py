@@ -14,13 +14,19 @@ def pop(stack):
         stack["head"] = stack["head"]["next"]
         return popped_value
 
-def display(stack):
-    current = stack["head"]
+def display(queue):
+    output = "["
+    current = queue["head"]
     while current:
-        print(current["key"], end=" ")
+        output += str(current["key"])
+        if current["next"]:
+            output += ", "
+            output += "["
+        else:
+            output += ", [None]"  
         current = current["next"]
-    print()
-
+    output += "]" * (output.count("[") - output.count("]")) + "]" 
+    print(output)
 
 # Vytvoření prázdného zásobníku
 my_stack = {}
@@ -42,3 +48,4 @@ print(pop(my_stack))
 # Vypsání obsahu zásobníku po odebrání prvků
 print("Obsah zásobníku po odebrání:")
 display(my_stack)
+
