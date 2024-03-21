@@ -23,7 +23,7 @@ def display(queue):
             output += ", "
             output += "["
         else:
-            output += ", [None]"  
+            output += ", []"  
         current = current["next"]
     output += "]" * (output.count("[") - output.count("]")) + "]" 
     print(output)

@@ -22,17 +22,15 @@ def tree_add(node, x):
 
 LABEL = 0
 EDGES = 1
-def add_edge(graph, from_label, to_label, value):
-    v = None
-    w = None
-    for node in graph:
-        if isinstance(node, list):
-            if node[LABEL] == from_label:
+def add_edge(graph, f, to, value):
+        for node in graph:
+            if node[LABEL] == f:
                 v = node
-            elif node[LABEL] == to_label:
-                w = node      
-    v[EDGES].append((w, value))  
-    w[EDGES].append((v, value))
+            elif node[LABEL] == to:
+                w = node
+            
+        v[EDGES].append((w,value))
+        w[EDGES].append((v,value))
 
 def add_node(graph, label):
         graph.append([label, []])

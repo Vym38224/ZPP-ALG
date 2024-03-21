@@ -26,7 +26,7 @@ def display(queue):
             output += ", "
             output += "["
         else:
-            output += ", [None]"  
+            output += ", []"  
         current = current["next"]
     output += "]" * (output.count("[") - output.count("]")) + "]" 
     print(output)
@@ -49,7 +49,12 @@ display(my_queue)
 print("Odebrané prvky:")
 print(dequeue(my_queue))
 print(dequeue(my_queue))
+print(dequeue(my_queue))
+print(dequeue(my_queue))
+print(dequeue(my_queue))
+
 
 # Vypsání obsahu fronty po odebrání prvků
 print("Obsah fronty po odebrání:")
 display(my_queue)
+

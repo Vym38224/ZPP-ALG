@@ -8,7 +8,7 @@ def tree_add(node, x):
         return
         
     while node[VALUE] != x:
-        parent = node[VALUE]
+        parent = node
         if x < node[VALUE]:
             if not node[LEFT_CHILD]:
                 node[LEFT_CHILD] = [x, [], [], [parent]]
