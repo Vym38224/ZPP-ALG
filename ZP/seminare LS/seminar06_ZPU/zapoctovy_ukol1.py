@@ -4,47 +4,59 @@ EDGES = 1
 def add_node(graph, label):
     graph.append([label, []])
 
+def add_edge(graph, f, to, value):
+        for node in graph:
+            if node[LABEL] == f:
+                v = node
+            elif node[LABEL] == to:
+                w = node
+            
+        v[EDGES].append((w,value))
+        w[EDGES].append((v,value))
 
+############################################################
 def vytvor_matici(pocet_radku, pocet_sloupcu):
-    root = [" ",pocet_radku, pocet_sloupcu]
+    radky = druha_struktura_radku(0, pocet_radku)
+    sloupce = druha_struktura_sloupce(0, pocet_sloupcu)
+    root = [[],pocet_radku, pocet_sloupcu]
     if pocet_radku > 0:
-        add_node(root, druha_struktura_radku(0, pocet_radku))
+        add_node(root, radky)
     if pocet_sloupcu > 0:
-        add_node(root, druha_struktura_sloupce(0, pocet_sloupcu))
+        add_node(root, sloupce)
     return root
-    
+
+def prvni_struktura(pocet_radku, pocet_sloupcu):
+    radky = druha_struktura_radku(0, pocet_radku)
+    sloupce = druha_struktura_sloupce(0, pocet_sloupcu)
+    root = []
+    if pocet_radku > 0:
+        add_node(root, radky)
+    if pocet_sloupcu > 0:
+        add_node(root, sloupce)
+    return root
+
 def druha_struktura_radku(index, pocet_radku):
-    root = [index]
-    if index < pocet_radku:
-        add_node(root, druha_struktura_radku(index + 1, pocet_radku))
-    return root
+    radky = [index]
+    if index+1 < pocet_radku:
+        add_node(radky, druha_struktura_radku(index + 1, pocet_radku))
+    return radky
 
 def druha_struktura_sloupce(index, pocet_sloupcu):
-    root = [index]
-    if index < pocet_sloupcu:
-        add_node(root, druha_struktura_sloupce(index + 1, pocet_sloupcu))
-    return root
+    sloupce = [index]
+    if index+1 < pocet_sloupcu:
+        add_node(sloupce, druha_struktura_sloupce(index + 1, pocet_sloupcu))
+    return sloupce
 
-def treti_struktura_radku(prvek,radek,sloupec,dalsi_radek):
-    root=[prvek,radek,sloupec]
-    add_node(root,dalsi_radek)
-    return root
-
-def treti_struktura_sloupce(prvek,radek,sloupec,dalsi_sloupec):
-    root=[prvek,radek,sloupec]
-    add_node(root,dalsi_sloupec)
-    return root
+def treti_struktura(prvek,radek,sloupec):
+    pass
 
 def vloz_prvek(matice, prvek, radek, sloupec):
-    pass
+    root=[prvek, radek, sloupec]
+    add_node(root)
+    add_edge(matice, radek, sloupec, prvek)
 
-def zobraz_matici(matice):
-    pass
-    
 # Testování
 matice = vytvor_matici(3, 3)
 print(matice)
-print(treti_struktura_radku(1, 0, 1, None))
-print(treti_struktura_sloupce(1, 0, 1, 2))
-vloz_prvek(matice, 1, 0, 1)
+
 
