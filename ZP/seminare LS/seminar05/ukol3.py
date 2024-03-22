@@ -1,24 +1,3 @@
-VALUE = 0
-LEFT_CHILD = 1
-RIGHT_CHILD = 2
-
-def tree_add(node, x):
-    if not node:
-        node.extend([x, [], []])
-        return
-        
-    while node[VALUE] != x:
-        parent = node[VALUE]
-        if x < node[VALUE]:
-            if not node[LEFT_CHILD]:
-                node[LEFT_CHILD] = [x, [], [], [parent]]
-                return
-            node = node[LEFT_CHILD]
-        elif x > node[VALUE]:
-            if not node[RIGHT_CHILD]:
-                node[RIGHT_CHILD] = [x, [], [], [parent]]
-                return
-            node = node[RIGHT_CHILD]
 
 LABEL = 0
 EDGES = 1
@@ -40,6 +19,7 @@ root = []
 add_node(root, 16)
 add_node(root, 15)
 add_node(root, 42)
+print(root)
 add_edge(root, 16, 15, 1)
 add_edge(root, 16, 42, 2)
 
