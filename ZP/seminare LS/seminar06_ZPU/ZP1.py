@@ -1,5 +1,5 @@
 def vytvor_strukturu_matice(m, n):
-    # První struktura: uchovává počet řádků, počet sloupců, odkaz na první řádek a první sloupec v matici
+    # První struktura: počet řádků, počet sloupců, odkaz na první řádek a první sloupec v matici
     info_matice = [m, n, None, None]
 
     # Inicializace řádků a sloupců
@@ -41,7 +41,8 @@ def pridej_prvek_na_zacatek_seznamu(seznam, novy_prvek):
         novy_prvek[3] = seznam[1]
         seznam[1] = novy_prvek
 
-def vloz_prvek(info_matice, radky, sloupce, hodnota, radek, sloupec):
+def vloz_prvek(matice, hodnota, radek, sloupec):
+    info_matice, radky, sloupce = matice
     m, n, _, _ = info_matice  # Rozbalení informací o matici
 
     if radek < 0 or radek >= m or sloupec < 0 or sloupec >= n:
@@ -54,34 +55,36 @@ def vloz_prvek(info_matice, radky, sloupce, hodnota, radek, sloupec):
     pridej_prvek_na_zacatek_seznamu(radky[radek], novy_prvek)
     pridej_prvek_na_zacatek_seznamu(sloupce[sloupec], novy_prvek)
 
-def ziskej_hodnotu(info_matice, radky, sloupc, radek):
+def ziskej_hodnotu(matice, sloupec, radek):
+    info_matice, radky, sloupce = matice
     m, n, _, _ = info_matice  
 
-    if radek < 0 or radek >= m or sloupc < 0 or sloupc >= n:
+    if radek < 0 or radek >= m or sloupec < 0 or sloupec >= n:
         print("Index řádku nebo sloupce mimo rozsah matice")
         return
 
     aktualni_radkovy_prvek = radky[radek][1]
 
     while aktualni_radkovy_prvek is not None:
-        if aktualni_radkovy_prvek[2] == sloupc:
+        if aktualni_radkovy_prvek[2] == sloupec:
             return aktualni_radkovy_prvek[0]
         aktualni_radkovy_prvek = aktualni_radkovy_prvek[3]
     return 0
 
 
-def ukaz_matici(info_matice, radky, sloupce):
+def ukaz_matici(matice):
+    info_matice, radky, sloupce = matice
     m, n, _, _ = info_matice  
 
     for radek in range(m):
         for sloupec in range(n):
-            print(ziskej_hodnotu(info_matice, radky, sloupec, radek), end=" ")
+            print(ziskej_hodnotu(matice, sloupec, radek), end=" ")
         print()
 
 # Příklad použití:
-info_matice, radky, sloupce = vytvor_strukturu_matice(4, 4)
-vloz_prvek(info_matice, radky, sloupce, 1, 0, 0)
-vloz_prvek(info_matice, radky, sloupce, 2, 1, 1)
-vloz_prvek(info_matice, radky, sloupce, 3, 2, 2)
-vloz_prvek(info_matice, radky, sloupce, 4, 3, 3)
-ukaz_matici(info_matice, radky, sloupce)
+matice = vytvor_strukturu_matice(3, 3)
+vloz_prvek(matice, 1, 0, 0)
+vloz_prvek(matice, 1, 1, 1)
+vloz_prvek(matice, 1, 2, 2)
+ukaz_matici(matice)
+
