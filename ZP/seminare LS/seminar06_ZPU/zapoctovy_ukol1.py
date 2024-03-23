@@ -19,13 +19,7 @@ def add_node(graph, label):
 def vytvor_matici(pocet_radku, pocet_sloupcu):
     radky = druha_struktura_radku(0, pocet_radku)
     sloupce = druha_struktura_sloupce(0, pocet_sloupcu)
-    root = []
-    if pocet_radku > 0:
-        add_node(root, radky)
-    if pocet_sloupcu > 0:
-        add_node(root, sloupce)
-    return root
-        
+    return radky, sloupce
     
 def prvni_struktura(pocet_radku, pocet_sloupcu):
     radky = druha_struktura_radku(0, pocet_radku)
@@ -40,7 +34,7 @@ def prvni_struktura(pocet_radku, pocet_sloupcu):
 def druha_struktura_radku(index, pocet_radku):
     radky = [index]
     if index+1 < pocet_radku:
-        add_node(radky, druha_struktura_radku(index + 1, pocet_radku))
+            add_node(radky, druha_struktura_radku(index + 1, pocet_radku))
     return radky
 
 def druha_struktura_sloupce(index, pocet_sloupcu):
@@ -49,24 +43,21 @@ def druha_struktura_sloupce(index, pocet_sloupcu):
         add_node(sloupce, druha_struktura_sloupce(index + 1, pocet_sloupcu))
     return sloupce
 
-def treti_struktura(hodnota,radek,sloupec):
-    root=[hodnota,radek,sloupec]
+def treti_struktura_radek(hodnota, i_radek, i_sloupec):
+    root=[hodnota, i_radek, i_sloupec]
     return root
 
 def vloz_prvek(matice, prvek, radek, sloupec):
     for i in range(len(matice)):
         for j in range(len(matice[i])):
-            if i == radek and j == sloupec:
+            if i == radek and j == sloupec: 
                 matice[i][j] = treti_struktura(prvek, radek, sloupec)
                 
-
 # Testování
-matice = vytvor_matici(3, 3)
-print("Před vložením prvku:")
-print(matice)
-vloz_prvek(matice, 1, 0, 1)
-print("Po vložení prvku:")
-print(matice)
+#matice = vytvor_matici(3, 3)
+#print(matice)
+print(druha_struktura_radku(0,3))
+print(treti_struktura_radek(1,0,1))
 
 
 
