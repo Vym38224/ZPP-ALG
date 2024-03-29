@@ -2,9 +2,12 @@ PRVNI_PRVEK = 0
 DALSI_PRVEK = 1
 
 def pridej_do_seznamu(seznam, x):
-    while seznam:
-        seznam = seznam[DALSI_PRVEK]
-    seznam.extend([x, []])
+    try:
+        while seznam:
+            seznam = seznam[DALSI_PRVEK]
+        seznam.extend([x, []])
+    except AttributeError:
+        print("Pozor slovník nemá atribut 'extend'!")
 
 def odeber_ze_seznamu(seznam, x):
     if not seznam:
@@ -40,3 +43,8 @@ odeber_ze_seznamu(muj_seznam, 4)
 odeber_ze_seznamu(muj_seznam, 4)
 pridej_do_seznamu(muj_seznam, 7)
 print(f"Seznam po odebrání: {muj_seznam}")
+print()
+
+muj_slovnik = {}
+pridej_do_seznamu(muj_slovnik, 7)
+

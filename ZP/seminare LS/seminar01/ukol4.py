@@ -1,6 +1,4 @@
-s1=[4,1,3,4,6,8,9]
-s2=[1,8,4,6,3,4,9]
-
+    
 def Insertion_Sort(arr):
     for j in range(1, len(arr)):
         t = arr[j]
@@ -23,6 +21,12 @@ def stejne_hodnoty(s1,s2):
         else:
             return False
 
-Insertion_Sort(s1)
-Insertion_Sort(s2)
-print(stejne_hodnoty(s1,s2))
+try:
+    s1=[4,1,3,4,6,8,9]
+    s2=[int("jedna"),8,4,6,3,4,9]
+
+    Insertion_Sort(s1)
+    Insertion_Sort(s2)
+    print(stejne_hodnoty(s1,s2))
+except ValueError:
+    print("Operace s kompatibilními datovými typy ale s chybnou hodnotou!")

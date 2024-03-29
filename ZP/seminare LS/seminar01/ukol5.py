@@ -8,6 +8,11 @@ def decimal_to_binary(decimal):
     return binary
 
 # Test
-decimal_number = 2
+try:
+    decimal_number = int(16/2)
+    decimal_number = int(16/0)
+except ZeroDivisionError:
+    print("Druhý operand operace dělení nebo modulo je roven nule")
+
 binary_number = decimal_to_binary(decimal_number)
 print("Binární číslo:", binary_number)

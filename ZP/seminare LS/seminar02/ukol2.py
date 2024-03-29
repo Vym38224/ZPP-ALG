@@ -5,7 +5,7 @@ def soucet_intervalu_rekurze(start, end):
         return start + soucet_intervalu_rekurze(start + 1, end)
 
 # Příklad použití funkce:
-start = 1
-end = 3
+start = 2
+end = 4
 vysledek = soucet_intervalu_rekurze(start, end)
 print(f"Součet čísel od {start} do {end} je: {vysledek}")

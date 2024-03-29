@@ -10,8 +10,12 @@ def reverse_diagonal_matrix(n):
         matrix.append(radek)
     return matrix
     
-n = 7
-result_matrix = reverse_diagonal_matrix(n)
-for radek in result_matrix:
-    print(radek)
+try:
+    n = 4
+    # n = a
+    result_matrix = reverse_diagonal_matrix(n)
+    for radek in result_matrix:
+        print(radek)
+except NameError:
+    print("Přístup k nedefinované proměnné")
 

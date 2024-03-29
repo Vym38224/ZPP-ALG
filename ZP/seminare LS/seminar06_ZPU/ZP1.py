@@ -1,23 +1,24 @@
+def prvni_struktura(m,n):
+    matice.extend([m, n , [], []])
 
 def vytvor_matici(m, n):
-    # počet řádků, počet sloupců, odkaz na první řádek a první sloupec v matici (1.typ Struktury)
+    # 1.typ Struktury
     info_matice = [m, n, None, None]
 
-    # Inicializace řádků a sloupců
+    # řádky a sloupce
     radky = [None] * m
     sloupce = [None] * n
 
-    # pro každý řádek vytvoříme první strukturu druhého typu a uložíme ji do seznamu radky (2.typ Struktury)
+    
+    # pro každý řádek vytvoříme první strukturu druhého typu a uložíme ji do seznamu řadky a sloupce (2.typ Struktury)
+    # řadky
     for i in range(m):
         radky[i] = [i, None]  # index řádku, odkaz na první hodnotu v řádku
-        # Inicializujeme první prvek každého řádku jako None
-        radky[i][1] = None
-
-    # pro každý sloupec vytvoříme první strukturu druhého typu a uložíme ji do seznamu sloupce
+        radky[i][1] = None # první prvek každého řádku jako None
+    # sloupce
     for i in range(n):
         sloupce[i] = [i, None]  # index sloupce, odkaz na první hodnotu ve sloupci
-        # Inicializujeme první prvek každého sloupce jako None
-        sloupce[i][1] = None
+        sloupce[i][1] = None  # první prvek každého sloupce jako None
     return info_matice, radky, sloupce
 
 def vytvor_prvek(hodnota, radek, sloupec):
@@ -37,11 +38,11 @@ def pridej_prvek_do_sloupce(aktualni_prvek, novy_prvek):
     aktualni_prvek[4] = novy_prvek
 
 def pridej_prvek_na_zacatek_seznamu(seznam, novy_prvek):
-    # pokud seznam je prázdný, přidej nový prvek na začátek
+    # seznam je prázdný, přidej nový prvek
     if seznam[1] is None:
         seznam[1] = novy_prvek
     else:
-        # pokud seznam není prázdný, nastav nový prvek jako první a přidej starý první prvek jako druhý
+        # seznam není prázdný, 
         novy_prvek[3] = seznam[1]
         seznam[1] = novy_prvek
 
@@ -85,7 +86,9 @@ def zobraz_matici(matice):
 
 # příklad použití:
 matice = vytvor_matici(3, 4)
-vloz_prvek(matice, 1, 0, 1)
+print(matice)
+"""vloz_prvek(matice, 1, 0, 1)
 vloz_prvek(matice, 18, 0, 2)
 vloz_prvek(matice, 3, 2, 2)
 zobraz_matici(matice)
+"""
