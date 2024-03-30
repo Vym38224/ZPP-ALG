@@ -84,5 +84,8 @@ def display_matrix(matice, pocet_radku, pocet_sloupcu):
 # Příklad použití
 matice = create_matrix(3, 4)
 insert_element(matice, 1, 0, 1)
+insert_element(matice, 2, 1, 1)
+insert_element(matice, 3, 1, 2)
+insert_element(matice, 4, 2, 2)
 display_matrix(matice,3,4)
 print(matice)
