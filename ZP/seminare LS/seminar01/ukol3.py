@@ -12,7 +12,7 @@ def reverse_diagonal_matrix(n):
     
 try:
     n = 4
-    # n = a
+    n = a
     result_matrix = reverse_diagonal_matrix(n)
     for radek in result_matrix:
         print(radek)

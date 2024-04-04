@@ -1,20 +1,14 @@
-def set_bit(number, bit):
-        mask = 1 << bit
-        return number | mask
-    
-def delete_bit(number, bit):
-    mask = ~(1 << bit)
-    return number & mask
+def bits_count(decimal):
+    count = 0
+    while decimal > 0:
+        decimal = decimal//2
+        count += 1
+    return count
 
-# použít funkce set_bit()
-a= set_bit(0, 0) # vrací: 1 (0b1)
-b =set_bit(0, 7) # vrací: 128 (0b10000000)
+# Test
+print(bits_count(2))
+print(bits_count(8))
+print(bits_count(16))
 
-# použít funkce delete_bit()
-c= delete_bit(255, 0) # vrací: 254 (0b11111110)
-d= delete_bit(255, 2) # vrací: 251 (0b11111011)
 
-print(a)
-print(b)
-print(c)
-print(d)
+
