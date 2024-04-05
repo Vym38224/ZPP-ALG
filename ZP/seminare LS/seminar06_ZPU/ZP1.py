@@ -1,8 +1,8 @@
 def vytvor_matici(x, y):
-    radky = [[i, [], []] for i in range(x)]
-    sloupce = [[i, [], []] for i in range(y)]
-    nova_matice = [x, y, radky, sloupce]
-    return nova_matice
+    radky = [[i, None] for i in range(x)]
+    sloupce = [[i, None] for i in range(y)]
+    matice = [x, y, radky, sloupce]
+    return matice
 
 def vloz_prvek_do_radku(radek, novy_prvek, y):
     if not radek[1]:
@@ -36,7 +36,6 @@ def rekurzivne_vloz_prvek_do_sloupce(aktualni_prvek, novy_prvek, x):
     aktualni_prvek[4] = rekurzivne_vloz_prvek_do_sloupce(aktualni_prvek[4], novy_prvek, x)
     return aktualni_prvek
 
-
 def vloz_prvek(matice, hodnota, x, y):
     novy_prvek = [hodnota, x, y, None, None]
 
@@ -49,7 +48,7 @@ def vloz_prvek(matice, hodnota, x, y):
         sloupec = matice[3][y]
         vloz_prvek_do_sloupce(sloupec, novy_prvek, x)
     else:
-        print(f"Pozor na správný počet řádku nebo sloupců matice! Prvek s hodnotou {hodnota} nebyl přidán do naší matice typu {matice[0]}×{matice[1]}")
+        print(f"Pozor na správný počet řádku nebo sloupců matice! Prvek s hodnotou {hodnota} nebyl přidán do naší matice typu {matice[0]}x{matice[1]}")
         print()
 
 def zobraz_matici(matice):
@@ -65,15 +64,12 @@ def zobraz_matici(matice):
                 print(0, end="  ")
         print()
 
-
 # Test
 matice = vytvor_matici(3, 4)
 vloz_prvek(matice, 1, 0, 0)
-vloz_prvek(matice, 2, 1, 1)
-vloz_prvek(matice, 3, 1, 2)
-vloz_prvek(matice, 4, 2, 2)
-vloz_prvek(matice, 5, -2, 0)
-vloz_prvek(matice, 6, 3, 1)
+vloz_prvek(matice, 2, 2, 2)
+vloz_prvek(matice, 3, 2, 3)
+
 zobraz_matici(matice)
 print()
 print(matice)
