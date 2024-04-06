@@ -111,11 +111,11 @@ def najdi_prvek(matice, x, y):
         uzel = uzel[3]
     return None
 
-matice = vytvor_matici(3,4)
-vloz_prvek(matice,1,0,0)
-vloz_prvek(matice,2,2,2)
-vloz_prvek(matice,4,1,3)
-vloz_prvek(matice,3,2,3)
+matice = vytvor_matici(3,3)
+vloz_prvek(matice,1,0,1)
+vloz_prvek(matice,2,1,1)
+vloz_prvek(matice,3,1,2)
+vloz_prvek(matice,4,2,2)
 vloz_prvek(matice,5,3,3)
 
 zobraz_matici(matice)
