@@ -1,52 +1,91 @@
 def vytvor_matici(x, y):
-    radky = [[i, None] for i in range(x)]
-    sloupce = [[i, None] for i in range(y)]
-    matice = [x, y, radky, sloupce]
-    return matice
+    nova_matice = [x, y, [], []]
 
-def vloz_prvek_do_radku(radek, novy_prvek, y):
-    if not radek[1]:
-        radek[1] = novy_prvek
-    elif y < radek[1][2]:
-        novy_prvek[3] = radek[1]
-        radek[1] = novy_prvek
-    else:
-        radek[1] = rekurzivne_vloz_prvek_do_radku(radek[1], novy_prvek, y)
+    # Vytvoření řádků
+    radky = nova_matice[2]
+    for i in range(x):
+        novy_radek = [i, [], []]
+        if radky == []:
+            radky[:] = novy_radek
+        else:
+            while radky[2]:
+                radky = radky[2]
+            radky[2] = novy_radek
 
-def rekurzivne_vloz_prvek_do_radku(aktualni_prvek, novy_prvek, y):
-    if not aktualni_prvek or y < aktualni_prvek[2]:
-        novy_prvek[3] = aktualni_prvek
-        return novy_prvek
-    aktualni_prvek[3] = rekurzivne_vloz_prvek_do_radku(aktualni_prvek[3], novy_prvek, y)
-    return aktualni_prvek
+    # Vytvoření sloupců
+    sloupce = nova_matice[3]
+    for i in range(y):
+        novy_sloupec = [i, [], []]
+        if sloupce == []:
+            sloupce[:] = novy_sloupec
+        else:
+            while sloupce[2]:
+                sloupce = sloupce[2]
+            sloupce[2] = novy_sloupec
 
-def vloz_prvek_do_sloupce(sloupec, novy_prvek, x):
-    if not sloupec[1]:
-        sloupec[1] = novy_prvek
-    elif x < sloupec[1][2]:
-        novy_prvek[3] = sloupec[1]
-        sloupec[1] = novy_prvek
-    else:
-        sloupec[1] = rekurzivne_vloz_prvek_do_sloupce(sloupec[1], novy_prvek, x)
+    return nova_matice
 
-def rekurzivne_vloz_prvek_do_sloupce(aktualni_prvek, novy_prvek, x):
-    if not aktualni_prvek or x < aktualni_prvek[1]:
-        novy_prvek[4] = aktualni_prvek
-        return novy_prvek
-    aktualni_prvek[4] = rekurzivne_vloz_prvek_do_sloupce(aktualni_prvek[4], novy_prvek, x)
-    return aktualni_prvek
+def vloz_do_radku(aktualni_radek, novy_uzel, pozice):
+    # Pokud je seznam prázdný, vytvoříme nový uzel a vrátíme ho
+    if not aktualni_radek:
+        return novy_uzel
+
+    # Pokud pozice je menší než pozice prvního prvku, vložíme nový uzel na začátek
+    if pozice < aktualni_radek[2]:
+        novy_uzel[3] = aktualni_radek
+        return novy_uzel
+
+    # Procházíme seznamem, dokud nenajdeme místo pro vložení nového uzlu
+    predchozi = None
+    aktualni = aktualni_radek
+    while aktualni and pozice >= aktualni[2]:
+        predchozi = aktualni
+        aktualni = aktualni[3]
+
+    # Vložení nového uzlu mezi předchozí a aktuální uzel
+    predchozi[3] = novy_uzel
+    novy_uzel[3] = aktualni
+
+    return aktualni_radek
+
+def vloz_do_sloupce(aktualni_sloupec, novy_uzel, pozice):
+    # Pokud je seznam prázdný, vytvoříme nový uzel a vrátíme ho
+    if not aktualni_sloupec:
+        return novy_uzel
+
+    # Pokud pozice je menší než pozice prvního prvku, vložíme nový uzel na začátek
+    if pozice < aktualni_sloupec[1]:
+        novy_uzel[4] = aktualni_sloupec
+        return novy_uzel
+
+    # Procházíme seznamem, dokud nenajdeme místo pro vložení nového uzlu
+    predchozi = None
+    aktualni = aktualni_sloupec
+    while aktualni and pozice >= aktualni[1]:
+        predchozi = aktualni
+        aktualni = aktualni[4]
+
+    # Vložení nového uzlu mezi předchozí a aktuální uzel
+    predchozi[4] = novy_uzel
+    novy_uzel[4] = aktualni
+
+    return aktualni_sloupec
 
 def vloz_prvek(matice, hodnota, x, y):
-    novy_prvek = [hodnota, x, y, None, None]
+    novy_uzel = [hodnota, x, y, [], []]
 
-    if x < matice[0] and x >= 0 and y < matice[1] and y >= 0:
-        # Vložení prvku do řádku
-        radek = matice[2][x]
-        vloz_prvek_do_radku(radek, novy_prvek, y)
+    if 0 <= x < matice[0] and 0 <= y < matice[1]:
+        # Vložení do řádku
+        radek = matice[2]
+        for i in range(x):
+            radek = radek[2]
+        radek[1] = vloz_do_radku(radek[1], novy_uzel, y)
 
-        # Vložení prvku do sloupce
-        sloupec = matice[3][y]
-        vloz_prvek_do_sloupce(sloupec, novy_prvek, x)
+        # Vložení do sloupce
+        sloupec = matice[3]
+        for i in range(y):
+            sloupec = sloupec[2]
+        sloupec[1] = vloz_do_sloupce(sloupec[1], novy_uzel, x)
     else:
         print(f"Pozor na správný počet řádku nebo sloupců matice! Prvek s hodnotou {hodnota} nebyl přidán do naší matice typu {matice[0]}x{matice[1]}")
         print()
@@ -54,21 +93,30 @@ def vloz_prvek(matice, hodnota, x, y):
 def zobraz_matici(matice):
     for i in range(matice[0]):
         for j in range(matice[1]):
-            prvek = matice[2][i][1]
-            while prvek is not None:
-                if prvek[2] == j:
-                    print(prvek[0], end="  ")
-                    break
-                prvek = prvek[3]
-            else:
+            prvek = najdi_prvek(matice, i, j)
+            if prvek is None:
                 print(0, end="  ")
+            else:
+                print(prvek[0], end="  ")
         print()
 
-# Test
-matice = vytvor_matici(3, 4)
-vloz_prvek(matice, 1, 0, 0)
-vloz_prvek(matice, 2, 2, 2)
-vloz_prvek(matice, 3, 2, 3)
+def najdi_prvek(matice, x, y):
+    radek = matice[2]
+    for i in range(x):
+        radek = radek[2]
+    uzel = radek[1]
+    while uzel:
+        if uzel[2] == y:
+            return uzel
+        uzel = uzel[3]
+    return None
+
+matice = vytvor_matici(3,4)
+vloz_prvek(matice,1,0,0)
+vloz_prvek(matice,2,2,2)
+vloz_prvek(matice,4,1,3)
+vloz_prvek(matice,3,2,3)
+vloz_prvek(matice,5,3,3)
 
 zobraz_matici(matice)
 print()
