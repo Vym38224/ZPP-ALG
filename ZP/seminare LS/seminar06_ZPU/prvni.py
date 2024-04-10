@@ -64,6 +64,8 @@ def zobraz_matici(matice):
 # Test
 matice = vytvor_matici(3, 4)
 vloz_prvek(matice, 1, 0, 0)
+vloz_prvek(matice, 2,1,2)
+vloz_prvek(matice,3,2,3)
 
 
 
