@@ -12,8 +12,8 @@ def convert_number_to_bytes(number):
             bytes_array.append(0)
         return bytes_array[::-1]
     
-# Použití
-bytes_array = convert_number_to_bytes(2161) # vrátí: [36, 92]
+# Použití 1000 0000 = 256 = 1 byte
+bytes_array = convert_number_to_bytes(2560) 
 try:
     f = open("ZP/seminare LS/seminar09/soubor.bin","wb")
     f.write(bytes(bytes_array))
