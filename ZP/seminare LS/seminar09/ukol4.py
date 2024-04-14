@@ -1,5 +1,9 @@
-def convert_bytes_to_number(bytes):
-    pass
+def convert_bytes_to_number(bytes_array):
+        number = 0
+        if bytes_array:
+            for byte in bytes_array:
+                number = (number << 8) + byte
+        return number
 
 def convert_number_to_bytes(number):
         bytes_array = []
@@ -11,17 +15,33 @@ def convert_number_to_bytes(number):
         else:
             bytes_array.append(0)
         return bytes_array[::-1]
-    
-# Použití 1000 0000 = 256 = 1 byte
-bytes_array = convert_number_to_bytes(2560) 
+        
+
+
+bytes_array = convert_number_to_bytes(9308)
+number = convert_bytes_to_number(list(bytes_array))
+
+#number = convert_bytes_to_number([2,0])
+#bytes_array = convert_number_to_bytes(number)
+
+# Použití bytes
 try:
-    f = open("ZP/seminare LS/seminar09/soubor.bin","wb")
+    f = open("ZP/seminare LS/seminar09/soubor.bin", "wb")
     f.write(bytes(bytes_array))
-except:
+    print("Bytes:", bytes_array)
+except Exception as e:
     # ošetření výjimek
-    print("Chyba při práci se souborem.")
+    print("Chyba při práci se souborem bytes:", e)
 finally:
-    # uzavření souboru
     f.close()
 
-print(bytes_array)
+# Použití number
+try:
+    f1 = open("ZP/seminare LS/seminar09/soubor.bin", "rb")
+    f1.read()
+    print("Number:", number)
+except Exception as e:
+    # ošetření výjimek
+    print("Chyba při práci se souborem number:", e)
+finally:
+    f1.close()
