@@ -27,7 +27,7 @@ def ztracene_bity(number, count):
     return vysledek
 
 
-number = 0b0010011 
+number = 0b10010011 
 count = 2
 print(rotate_right(number,count))
 
