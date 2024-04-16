@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<knihy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="knihy.xsd">
+    <kniha>
+        <ISBN>K003</ISBN>
+        <nazev>Stopařův průvodce po galaxii</nazev>
+        <vydavatel>MF</vydavatel>
+        <rok_vydani>1985</rok_vydani>
+        <pocet_stran>214</pocet_stran>
+        <cena>120</cena>
+        <zanr>scifi</zanr>
+        <typ>kniha</typ>
+        <vyypujcka>
+            <jmeno>Jan Novák</jmeno>
+            <datum_vypujceni>2024-04-01</datum_vypujceni>
+            <vraceno>false</vraceno>
+        </vyypujcka>
+    </kniha>
+ 
