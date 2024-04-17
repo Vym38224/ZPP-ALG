@@ -10,6 +10,8 @@ def uloz_matici(file, matrix):
             f.write(row_str + "\n")
     except:
         print("Chyba při práci se souborem")
+    finally:
+        f.close()
 
 def nacti_matici(file):
     matrix = []
@@ -25,4 +27,5 @@ def nacti_matici(file):
                 element += char
         row.append(int(element)) 
         matrix.append(row)
+    f.close()
     return matrix
