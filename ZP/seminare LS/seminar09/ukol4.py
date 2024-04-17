@@ -34,9 +34,7 @@ def convert_number_to_bytes(number):
             bytes_array.append(0)
         return bytes_array[::-1]
         
-
-
-bytes_array = [2,0]
+bytes_array = [36,92]
 
 number = convert_bytes_to_number(bytes_array)
 print(number)
