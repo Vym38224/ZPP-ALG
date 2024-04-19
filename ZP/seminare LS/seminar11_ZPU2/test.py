@@ -39,3 +39,7 @@ print(loaded_bitsets)
 condition =  lambda bitset: max(bitset) <= 10 
 filtered_bitsets = bit_set.load_bitsets_if(condition,"ZP/seminare LS/seminar11_ZPU2/bit_sets.txt")
 print(filtered_bitsets)
+
+condition = lambda bitset: len(bitset) > 0 and max(bitset) <= 100
+filtered_bitsets = bit_set.load_bitsets_if(condition,"ZP/seminare LS/seminar11_ZPU2/big_bit_sets.txt")
+print(filtered_bitsets)
