@@ -9,4 +9,4 @@ def odeber_ze_zasobniku(zasobnik):
     if zasobnik:
         return zasobnik.pop()
     else:
-        pass
+        return None
