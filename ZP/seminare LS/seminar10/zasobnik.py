@@ -1,11 +1,12 @@
 def vytvor_zasobnik():
-    return []
+    zasobnik = []
+    return zasobnik
 
 def pridej_do_zasobniku(zasobnik,hodnota):
     zasobnik.append(hodnota)
 
 def odeber_ze_zasobniku(zasobnik):
     if zasobnik:
-        zasobnik.pop()
+        return zasobnik.pop()
     else:
         pass
