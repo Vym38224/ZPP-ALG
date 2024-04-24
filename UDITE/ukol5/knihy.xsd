@@ -13,25 +13,32 @@
 </xs:simpleType>
 <xs:element name="knihy">
     <xs:complexType>
-        <xs:sequence>
-            <xs:element name="ISBN" type="xs:string" />
-            <xs:element name="nazev" type="xs:string" />
-            <xs:element name="vydavatel" type="xs:string" />
-            <xs:element name="rok_vydani" type="xs:integer" />
-            <xs:element name="pocet_stran" type="pocet_stran" />
-            <xs:element name="cena" type="xs:integer" />
-            <xs:element name="zanr" type="xs:string" />
-            <xs:element name="typ" type="typ_knihy" />
-            <xs:element name="vypujcka">
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" name="kniha">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ISBN" type="xs:string" />
+              <xs:element name="nazev" type="xs:string" />
+              <xs:element name="vydavatel" type="xs:string" />
+              <xs:element name="rok_vydani" type="xs:unsignedShort" />
+              <xs:element name="pocet_stran" type="pocet_stran" />
+              <xs:element name="cena" type="xs:unsignedShort" />
+              <xs:element name="zanr" type="xs:string" />
+              <xs:element name="typ" type="typ_knihy" />
+              <xs:element name="vypujcka">
                 <xs:complexType>
-                    <xs:sequence>
-                        <xs:element name="jmeno" type="xs:string" />
-                        <xs:element name="datum" type="xs:string" />
-                        <xs:element name="vraceno" type="xs:string" />
-                    </xs:sequence>
+                  <xs:sequence>
+                    <xs:element name="jmeno" type="xs:string" />
+                    <xs:element name="datum" type="xs:string" />
+                    <xs:element name="vraceno" type="xs:string" />
+                  </xs:sequence>
                 </xs:complexType>
-            </xs:element>
-        </xs:sequence>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="isbn" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
     </xs:complexType>
 </xs:element>
 </xs:schema>
