@@ -6,6 +6,7 @@ zasobnik.pridej_do_zasobniku(z1, 65536)
 zasobnik.pridej_do_zasobniku(z1, 65535)
 zasobnik.pridej_do_zasobniku(z1, 3)
 zasobnik.pridej_do_zasobniku(z1, -3)
+print(z1)
 
 
 zasobnik.zapis_do_souboru("zasobnik.bin", z1)

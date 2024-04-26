@@ -30,8 +30,6 @@ soubor = "ZP/seminare LS/seminar11_ZPU2/cisla.bin"
 pocet_bajtu = 2
 zapis_cisla(soubor, pocet_bajtu, cisla)
 
-
-
 def precti_cisla(soubor):
     f = open(soubor, "rb")
     pocet_bajtu = ord(f.read(1))

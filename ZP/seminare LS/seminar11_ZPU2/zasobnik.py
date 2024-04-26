@@ -2,12 +2,11 @@ def preved_cislo_na_bajty(x, pocet_bajtu):
     bytes_array = []
     for i in range(pocet_bajtu):
         byte = x & 0xff
-        bytes_array.insert(0, byte)
+        bytes_array.append(byte)
         x >>= 8
     if x != 0:
-        print(ValueError("Zadané číslo se nevejde do daného počtu bajtů."))
-        return bytes_array[-pocet_bajtu:] 
-    return bytes_array[-pocet_bajtu:]
+        raise ValueError("Zadané číslo se nevejde do daného počtu bajtů.")
+    return bytes_array[::-1]
 
 def preved_bajty_na_cislo(bytes_array):
         number = 0
@@ -50,9 +49,15 @@ def vytvor_zasobnik(max_bajty):
 def pridej_do_zasobniku(seznam, x):
     max_bajty, zasobnik = seznam
     if 0 < x < 2**(max_bajty * 8):
+        posledni_prvek = None
         while zasobnik:
+            posledni_prvek = zasobnik
             zasobnik = zasobnik[1]
-        zasobnik.extend([x, []])
+        novy_prvek = [x, []]
+        if posledni_prvek is not None:
+            posledni_prvek[1] = novy_prvek
+        else:
+            seznam[1] = novy_prvek
     else:
         print(f"hodnota {x} je mimo povolený rozsah.")
 
