@@ -16,8 +16,8 @@ def preved_bajty_na_cislo(bytes_array):
         return number
 
 def zapis_do_souboru(soubor, zasobnik):
-    pocet_bajtu = zasobnik[0]
     cisla = zasobnik[1]
+    pocet_bajtu = zasobnik[0]
     f = open(soubor, "wb")
     f.write(bytes([pocet_bajtu]))
     while cisla:
@@ -28,9 +28,9 @@ def zapis_do_souboru(soubor, zasobnik):
     f.close()
 
 def nacti_ze_souboru(soubor):
+    cisla = []
     f = open(soubor, "rb")
     pocet_bajtu = ord(f.read(1))
-    cisla = []
     while True:
         bajty = f.read(pocet_bajtu)
         if not bajty:
@@ -63,10 +63,10 @@ def pridej_do_zasobniku(seznam, x):
 
 def odeber_ze_zasobniku(seznam):
     max_bajty, zasobnik = seznam
-    if not zasobnik:
-        return None
     predchozi = []
     aktualni = zasobnik
+    if not zasobnik:
+        return None
     while aktualni and aktualni[1]:
         predchozi = aktualni
         aktualni = aktualni[1]
