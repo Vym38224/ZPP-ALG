@@ -14,4 +14,3 @@ print(zasobnik.odeber_ze_zasobniku(z2))
 print(zasobnik.odeber_ze_zasobniku(z2))
 print(zasobnik.odeber_ze_zasobniku(z2))
 
-

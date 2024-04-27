@@ -80,5 +80,3 @@ def odeber_ze_zasobniku(seznam):
 
 
 
-
-
