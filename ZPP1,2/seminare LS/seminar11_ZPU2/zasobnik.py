@@ -2,11 +2,12 @@ def preved_cislo_na_bajty(x, pocet_bajtu):
     bytes_array = []
     for i in range(pocet_bajtu):
         byte = x & 0xff
-        bytes_array.append(byte)
+        bytes_array.insert(0, byte)
         x >>= 8
     if x != 0:
-        raise ValueError("Zadané číslo se nevejde do daného počtu bajtů.")
-    return bytes_array[::-1]
+        print(ValueError("Zadané číslo se nevejde do daného počtu bajtů."))
+        return bytes_array[-pocet_bajtu:] 
+    return bytes_array[-pocet_bajtu:]
 
 def preved_bajty_na_cislo(bytes_array):
         number = 0
@@ -16,8 +17,8 @@ def preved_bajty_na_cislo(bytes_array):
         return number
 
 def zapis_do_souboru(soubor, zasobnik):
-    cisla = zasobnik[1]
     pocet_bajtu = zasobnik[0]
+    cisla = zasobnik[1]
     f = open(soubor, "wb")
     f.write(bytes([pocet_bajtu]))
     while cisla:
@@ -28,9 +29,9 @@ def zapis_do_souboru(soubor, zasobnik):
     f.close()
 
 def nacti_ze_souboru(soubor):
-    cisla = []
     f = open(soubor, "rb")
     pocet_bajtu = ord(f.read(1))
+    cisla = []
     while True:
         bajty = f.read(pocet_bajtu)
         if not bajty:
@@ -49,24 +50,18 @@ def vytvor_zasobnik(max_bajty):
 def pridej_do_zasobniku(seznam, x):
     max_bajty, zasobnik = seznam
     if 0 < x < 2**(max_bajty * 8):
-        posledni_prvek = None
         while zasobnik:
-            posledni_prvek = zasobnik
             zasobnik = zasobnik[1]
-        novy_prvek = [x, []]
-        if posledni_prvek is not None:
-            posledni_prvek[1] = novy_prvek
-        else:
-            seznam[1] = novy_prvek
+        zasobnik.extend([x, []])
     else:
         print(f"hodnota {x} je mimo povolený rozsah.")
 
 def odeber_ze_zasobniku(seznam):
     max_bajty, zasobnik = seznam
-    predchozi = []
-    aktualni = zasobnik
     if not zasobnik:
         return None
+    predchozi = []
+    aktualni = zasobnik
     while aktualni and aktualni[1]:
         predchozi = aktualni
         aktualni = aktualni[1]
@@ -77,6 +72,8 @@ def odeber_ze_zasobniku(seznam):
         odebrany_prvek = predchozi[1][0]
         predchozi[1] = []  
     return odebrany_prvek
+
+
 
 
 

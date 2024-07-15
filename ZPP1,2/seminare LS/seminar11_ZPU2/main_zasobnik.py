@@ -13,4 +13,3 @@ z2 = zasobnik.nacti_ze_souboru("zasobnik.bin")
 print(zasobnik.odeber_ze_zasobniku(z2))
 print(zasobnik.odeber_ze_zasobniku(z2))
 print(zasobnik.odeber_ze_zasobniku(z2))
-
