@@ -1,1 +1,1 @@
-ahoj ahoj Python 
+ahoj ahoj
